@@ -20,4 +20,8 @@ API для создания, редактирования и прохожден�
 - **JavaScript** 
 - **MySQL** 
 - **Express** 
-- **Sequelize** 
+- **Sequelize**
+
+## ER-диаграмма
+![drawSQL-image-export-2024-10-21](https://github.com/user-attachments/assets/8474c219-ebc9-4dfe-a079-f00ae2b641d7)
+
