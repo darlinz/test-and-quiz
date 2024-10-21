@@ -23,5 +23,6 @@ API для создания, редактирования и прохожден�
 - **Sequelize**
 
 ## ER-диаграмма
-![drawSQL-image-export-2024-10-21](https://github.com/user-attachments/assets/8474c219-ebc9-4dfe-a079-f00ae2b641d7)
+
+![drawSQL-image-export-2024-10-21 (1)](https://github.com/user-attachments/assets/4a3f508c-896b-4df7-9f65-6d0291636a3a)
 
