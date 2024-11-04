@@ -1,0 +1,253 @@
+{
+    "users": [
+      {
+        "username": "user1",
+        "email": "user1@gmail.com",
+        "password": "user12345"
+      },
+      {
+        "username": "user2",
+        "email": "user2@gmail.com",
+        "password": "user23456"
+      }
+    ],
+    
+    "subjects": [
+      {
+        "name": "Mathematics"
+      },
+      {
+        "name": "Programming"
+      },
+      {
+        "name": "Geography"
+      },
+      {
+        "name": "English"
+      },
+      {
+        "name": "Physics"
+      }
+    ],
+    "quizzes": [
+      {
+        "id": 1,
+        "name": "Math Quiz",
+        "subject": "Mathematics",
+        "author_id": 1,
+        "questions": [
+          {
+            "text": "What is the square root of 64?",
+            "answers": [
+              {
+                "text": "6",
+                "is_correct": false
+              },
+              {
+                "text": "8",
+                "is_correct": true
+              },
+              {
+                "text": "10",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "How many degrees are in a right angle?",
+            "answers": [
+              {
+                "text": "45 degrees",
+                "is_correct": false
+              },
+              {
+                "text": "90 degrees",
+                "is_correct": true
+              },
+              {
+                "text": "120 degrees",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "What is the result of 7 + 3 × 2?",
+            "answers": [
+              {
+                "text": "13",
+                "is_correct": true
+              },
+              {
+                "text": "20",
+                "is_correct": false
+              },
+              {
+                "text": "17",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "How many faces does a cube have?",
+            "answers": [
+              {
+                "text": "4",
+                "is_correct": false
+              },
+              {
+                "text": "6",
+                "is_correct": true
+              },
+              {
+                "text": "8",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "What is the value of 2^3?",
+            "answers": [
+              {
+                "text": "6",
+                "is_correct": false
+              },
+              {
+                "text": "8",
+                "is_correct": true
+              },
+              {
+                "text": "10",
+                "is_correct": false
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Python Quiz",
+        "subject": "Programming",
+        "author_id": 2,
+        "questions": [
+          {
+            "text": "What is the output of the following code: print(2 + 2)?",
+            "answers": [
+              {
+                "text": "3",
+                "is_correct": false
+              },
+              {
+                "text": "4",
+                "is_correct": true
+              },
+              {
+                "text": "5",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "Which data type is used to store a sequence of characters in Python?",
+            "answers": [
+              {
+                "text": "List",
+                "is_correct": false
+              },
+              {
+                "text": "String",
+                "is_correct": true
+              },
+              {
+                "text": "Dictionary",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "What will be the output of this code: print(type(5))?",
+            "answers": [
+              {
+                "text": "<class 'str'>",
+                "is_correct": false
+              },
+              {
+                "text": "<class 'int'>",
+                "is_correct": true
+              },
+              {
+                "text": "<class 'float'>",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "Which keyword is used to create a function in Python?",
+            "answers": [
+              {
+                "text": "function",
+                "is_correct": false
+              },
+              {
+                "text": "def",
+                "is_correct": true
+              },
+              {
+                "text": "func",
+                "is_correct": false
+              }
+            ]
+          },
+          {
+            "text": "What does the following code return: len([1, 2, 3])?",
+            "answers": [
+              {
+                "text": "2",
+                "is_correct": false
+              },
+              {
+                "text": "3",
+                "is_correct": true
+              },
+              {
+                "text": "4",
+                "is_correct": false
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "quizId": 1,
+        "results": [
+          {
+            "userId": 1,
+            "questionsRight": 5,
+            "passDateTime": "2024-10-28T10:12:00"
+          },
+          {
+            "userId": 2,
+            "questionsRight": 3,
+            "passDateTime": "2024-10-28T10:58:00"
+          }
+        ]
+      },
+      {
+        "quizId": 2,
+        "results": [
+          {
+            "userId": 1,
+            "questionsRight": 2,
+            "passDateTime": "2024-10-29T10:23:00"
+          },
+          {
+            "userId": 2,
+            "questionsRight": 4,
+            "passDateTime": "2024-10-30T18:42:00"
+          }
+        ]
+      }
+    ]
+  }
+  

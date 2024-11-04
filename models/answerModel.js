@@ -11,7 +11,7 @@ const Answer = db.define('Answer', {
             },
         }
     },
-    isCorrect: {
+    is_correct: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
         validate: {
