@@ -1,0 +1,511 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "Quizz API Documentation",
+      "description": "API documentation for the Quizz application, which allows users to take quizzes, track their scores, and manage user accounts.",
+      "version": "1.0.0"
+    },
+    "host": "localhost:3000/api",
+    "basePath": "/",
+    "schemes": [
+      "http",
+      "https"
+    ],
+    "tags": [
+        {
+          "name": "Users",
+          "description": "Operations related to users"
+        },
+        {
+            "name": "Quizzes",
+            "description": "Operations related to quizzes"
+          },
+          {
+            "name": "Results",
+            "description": "Operations related to results"
+          }],
+    "paths": {
+      "/users": {
+        "get": {
+            "tags": ["Users"],
+          "description": "Retrieve a list of all users in the system.",
+          "responses": {
+            "200": {
+              "description": "A list of users successfully retrieved."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            },
+            "default": {
+              "description": "Unexpected error occurred."
+            }
+          }
+        }
+      },
+      "/users/{id}": {
+        "get": {
+            "tags": ["Users"],
+          "description": "Retrieve a user by their unique ID. ",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "int"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User details successfully retrieved."
+            },
+            "404": {
+              "description": "User not found."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        },
+"put": {
+  "tags": ["Users"],
+  "description": "Update a user by their unique ID.",
+  "parameters": [
+    {
+      "name": "id",
+      "in": "path",
+      "required": true,
+      "type": "integer", 
+      "description": "The unique identifier of the user to be updated."
+    },
+    {
+      "name": "body",
+      "in": "body",
+      "required": true,
+      "schema": {
+        "type": "object",
+        "properties": {
+          "username": {
+            "type": "string",
+            "example": "any"
+          },
+          "email": {
+            "type": "string",
+            "example": "any@example.com"
+          },
+          "password": {
+            "type": "string",
+            "example": "any"
+          }
+        }
+      }
+    }
+  ],
+  "responses": {
+    "200": {
+      "description": "User details successfully updated."
+    },
+    "404": {
+      "description": "User not found."
+    },
+    "500": {
+      "description": "Internal Server Error."
+    }
+  }
+}
+,
+        "delete": {
+            "tags": ["Users"],
+          "description": "Delete a user by their unique ID. ",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "x-access-token",
+              "in": "header",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized access."
+            },
+            "403": {
+              "description": "Forbidden action."
+            }
+          }
+        }
+      },
+      "/users/username/{name}": {
+        
+        "get": {
+            "tags": ["Users"],
+          "description": "Retrieve a user by their unique username.",
+          "parameters": [
+            {
+              "name": "username",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "User details successfully retrieved."
+            },
+            "404": {
+              "description": "User not found."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        },
+        "delete": {
+            "tags": ["Users"],
+          "description": "Delete a user by their unique ID. ",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "x-access-token",
+              "in": "header",
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "401": {
+              "description": "Unauthorized access."
+            },
+            "403": {
+              "description": "Forbidden action."
+            }
+          }
+        }
+      },
+      "users/signin": {
+        
+        "post": {
+            "tags": ["Users"],
+          "description": "Authenticate a user and return a JWT token. This endpoint is used for user login.",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Authentication successful, token returned."
+            },
+            "401": {
+              "description": "Unauthorized access due to invalid credentials."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "users/signup": {
+        
+        "post": {
+            "tags": ["Users"],
+          "description": "Register a new user in the system. This endpoint creates a new account with provided details.",
+          "parameters": [
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "example": "any"
+                  },
+                  "email": {
+                    "example": "any"
+                  },
+                  
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          
+          "responses": {
+            "201": {
+              "description": "User successfully registered."
+            },
+            "400": {
+              "description": "Bad Request due to invalid input."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "quizzes/id/{id}": {
+        "get": {
+            "tags": ["Quizzes"],
+          "description": "Fetch quiz details using the quiz ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Quiz details successfully retrieved."
+            },
+            "404": {
+              "description": "Quiz not found."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        },
+        "put": {
+            "tags": ["Quizzes"],
+          "description": "Update the details of an existing quiz identified by its ID.",
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "example": "any"
+                  },
+                  "subject": {
+                    "example": "any"
+                  },
+                  "questions": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Quiz successfully updated."
+            },
+            "404": {
+              "description": "Quiz not found."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "/quizzes/name/{name}": {
+        
+        "get": {
+            "tags": ["Quizzes"],
+          "description": "Retrieve quizzes by their name.",
+          "parameters": [
+            {
+              "name": "name",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Quizzes successfully retrieved."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "quizzes/subject/{subjectName}": {
+        
+        "get": {
+            "tags": ["Quizzes"],
+          "description": "Fetch quizzes related to a specific subject.",
+          "parameters": [
+            {
+              "name": "subjectName",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Quizzes for the specified subject successfully retrieved."
+            },
+            "400": {
+              "description": "Bad Request due to invalid parameters."
+            },
+            "404": {
+              "description": "No quizzes found for the specified subject."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "quizzes/author/{username}": {
+        
+        "get": {
+            "tags": ["Quizzes"],
+          "description": "Retrieve quizzes created by a specific author. ",
+          "parameters": [
+            {
+              "name": "username",
+              "in": "path",
+              "required": true,
+              "type": "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Quizzes successfully retrieved for the specified author."
+            },
+            "400": {
+              "description": "Bad Request due to invalid parameters."
+            },
+            "404": {
+              "description": "No quizzes found for the specified author."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "quizzes/submit": {
+        
+        "post": {
+            "tags": ["Quizzes"],
+          "description": "Submit quiz answers for evaluation. This endpoint processes the user's answers and returns the result.",
+          "parameters": [
+            {
+              "name": "x-access-token",
+              "in": "header",
+              "type": "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "quizId": {
+                    "example": "any"
+                  },
+                  "answers": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Quiz submitted successfully and results returned."
+            },
+            "401": {
+              "description": "Unauthorized access."
+            },
+            "403": {
+              "description": "Forbidden action."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "results/leaderboard": {
+        "get": {
+            "tags": ["Results"],
+          "description": "Fetch the leaderboard displaying the top users based on their quiz scores. This allows users to see how they rank.",
+          "responses": {
+            "200": {
+              "description": "Leaderboard successfully retrieved."
+            },
+            "404": {
+              "description": "Leaderboard data not found."
+            },
+            "500": {
+              "description": "Internal Server Error."
+            }
+          }
+        }
+      },
+      "results/": {
+        "get": {
+            "tags": ["Results"],
+          "description": "Fetch the all the results from all the users",
+          "responses": {
+            "200": {
+              "description": "Results successfully retrieved."
+            },
+            "404": {
+              "description": "Result data not found."
+            },
+            "500": {
+              "description": "Server Error."
+            }
+          }
+        }
+      },
+      "results/id/{id}": {
+        "get": {
+            "tags": ["Results"],
+          "description": "Dislay all results of a user",
+          "responses": {
+            "200": {
+              "description": "Results successfully retrieved."
+            },
+            "404": {
+              "description": "Result data not found."
+            },
+            "500": {
+              "description": "Result Server Error."
+            }
+          }
+        }
+      }
+    }
+  }
+  

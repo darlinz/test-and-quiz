@@ -21,4 +21,4 @@ const sequelize = new Sequelize(
     }
 })();
 
-module.exports = sequelize; // Убедитесь, что здесь все правильно
+module.exports = sequelize; 

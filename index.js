@@ -1,3 +1,6 @@
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json'); // Update with your actual path
+
 require('dotenv').config();
 
 const express = require("express")
@@ -12,6 +15,8 @@ app.use(express.json())
 
 //parse requests of content typw -application/x-222-form-urlencoded
 app.use(express.urlencoded({extended: true}))
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 //simple route
 app.get("/", (req, res) => {

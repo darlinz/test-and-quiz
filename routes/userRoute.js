@@ -21,10 +21,10 @@ module.exports = app =>{
     router.get('/username/:username', users.findUsersByUsername);
 
     //редактировать ползователя
-    //router.put('/:id',authJWT.verifyToken, authJWT.checkUserId, users.update);
+    router.put('/:id',authJWT.verifyToken, authJWT.checkUserId, users.update);
 
     //удалить пользователя по ид
-    //router.delete('/:id',authJWT.verifyToken, authJWT.checkUserId, users.delete);
+    router.delete('/:id',authJWT.verifyToken, authJWT.checkUserId, users.delete);
 
 
     app.use('/api/users', router)
